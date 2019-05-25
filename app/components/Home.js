@@ -6,6 +6,10 @@ import { useMedia } from 'react-use-media';
 import { DropDownList } from '@progress/kendo-react-dropdowns';
 import { Button } from '@progress/kendo-react-buttons';
 
+import RecommendationTile from './RecommendationTile'
+
+import preview from '../images/Gallery/Barcelona-and-Tenerife/Arc-de-Triomf,-Barcelona,-Spain_Liliya-Karakoleva.JPG'
+
 const Home = () => {
   document.title = `TripXpert Home`;
   const isMd = useMedia("(min-width: 768px)") ? true : false;
@@ -51,7 +55,14 @@ const Home = () => {
       <div className="masonry-grid">
         <MasonryLayout columns={isMd ? 3 : 2} gap={isMd ? 32 : 24}>
           {[...Array(6).keys()].map(
-            (key) => <div key={`${key}`} style={{height: `200px`}} />
+            (key) => <RecommendationTile
+              key={`${key}`}
+              style={{height: `280px`}}
+              img={preview}
+              title={"test title"}
+              subtitle={"test subtitle"}
+              minPrice={400}
+            />
           )}
         </MasonryLayout>
       </div>

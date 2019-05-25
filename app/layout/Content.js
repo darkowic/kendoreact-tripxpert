@@ -18,6 +18,7 @@ const Content = () => {
           <Route exact path="/" component={Home} />
           <Route exact path="/destinations" component={Destinations} />
           <Route exact path="/contact" component={Contact} />
+          <Route exact path="/details" component={Contact} />
           <Route render={() => <h2 className="four-o-four">404 Page Not Found</h2>} />
         </Switch>
       </section>
