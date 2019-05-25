@@ -8,12 +8,11 @@
   padding-left: 0;
 }
 
-.k-autocomplete {
+.k-autocomplete, .k-dropdown {
   padding-right: 0;
   width: 100%;
+  height: 100%;
   border-radius: 0;
-  padding-top: 9px;
-  padding-bottom: 9px;
 }
 
 .k-button.k-primary {
@@ -30,6 +29,13 @@
   color: #ffffff;
   background-color: #C4004A;
   border-color: #C4004A;
+}
+
+.k-dropdown .k-drowdown-wrap {
+  background-color: #fff;
+  /*border-color: #fff;*/
+  align-items: center;
+    border: 1px red solid;
 }
 
 .k-autocomplete .k-clear-value, .k-dropdown-wrap .k-clear-value, .k-multiselect-wrap .k-clear-value {

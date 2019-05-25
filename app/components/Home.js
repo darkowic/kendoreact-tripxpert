@@ -3,7 +3,7 @@ import MasonryLayout from './MasonryLayout';
 import { useMedia } from 'react-use-media';
 
 /* KendoReact Components and CSS */
-import { AutoComplete } from '@progress/kendo-react-dropdowns';
+import { DropDownList } from '@progress/kendo-react-dropdowns';
 import { Button } from '@progress/kendo-react-buttons';
 
 const Home = () => {
@@ -27,13 +27,13 @@ const Home = () => {
           <div className="tx-search-md">
             <div className="row no-gutters">
               <div className="col-2">
-                <AutoComplete data={offerOptions} placeholder="Offer Type" />
+                <DropDownList data={offerOptions} placeholder="Offer Type" />
               </div>
               <div className="col-3">
-                <AutoComplete data={priceOptions} placeholder="Price Range" />
+                <DropDownList data={priceOptions} placeholder="Price Range" />
               </div>
               <div className="col-5">
-                <AutoComplete data={destinations} placeholder="Destinations" />
+                <DropDownList data={destinations} placeholder="Destinations" />
               </div>
               <div className="col-2">
                 <Button primary={true}>Search</Button>

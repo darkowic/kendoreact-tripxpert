@@ -35,8 +35,8 @@ html, body {
   transform: translateX(0);
   transition: transform .3s;
 }
-.wrapper.sm.closed main, 
-.wrapper.md.closed main, 
+.wrapper.sm.closed main,
+.wrapper.md.closed main,
 .wrapper.md.open main {
   transform: translateX(0px);
 }
@@ -66,7 +66,7 @@ main section {
 
 /* Home Header flex containted in the center */
 .home-header-container {
-  background-image: url(images/app/homepage-image.jpg);
+  background-image: url(images/App/homepage-image.jpg);
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -78,7 +78,7 @@ main section {
 }
 
 .header-centered {
-  width: 70%;
+  width: 85%;
   color: #fff;
   margin-top: -4.5em;
 }
@@ -106,6 +106,10 @@ main section {
 
 .wrapper.sm .tx-search-md { display: none; }
 .wrapper.md .tx-search-md { display: auto; }
+
+.header-centered .k-drowdown {
+  height: 100%;
+}
 
 .masonry-grid {
   margin: 2em;
