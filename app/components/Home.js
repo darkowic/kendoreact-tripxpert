@@ -9,8 +9,7 @@ import { Button } from '@progress/kendo-react-buttons';
 
 import RecommendationTile from './RecommendationTile';
 
-const URL_PREFIX = 'https://demos.telerik.com/aspnet-mvc/tripxpert/';
-const TOP_RECOMMENDS_URL = 'https://demos.telerik.com/aspnet-mvc/tripxpert/Destinations/Destinations_First';
+import { getRecommended } from '../api';
 
 const Home = () => {
   document.title = `TripXpert Home`;
@@ -21,11 +20,10 @@ const Home = () => {
 
   const [recommended, setRecommended] = useState(null);
   useEffect(() => {
-    axios.get(TOP_RECOMMENDS_URL)
-      .then((response) => {
-        setRecommended(response.data);
+    getRecommended()
+      .then((data) => {
+        setRecommended(data);
       });
-
   }, []);
 
   return (
@@ -70,7 +68,7 @@ const Home = () => {
               ({ DestinationID, DefaultImage, Title, ShortDescription, LowestPrice }) => <RecommendationTile
                 key={DestinationID}
                 style={{ height: `280px` }}
-                img={`${URL_PREFIX}${DefaultImage}`}
+                img={DefaultImage}
                 title={Title}
                 subtitle={ShortDescription}
                 minPrice={LowestPrice}

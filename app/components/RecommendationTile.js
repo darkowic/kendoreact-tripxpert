@@ -51,7 +51,7 @@ function RecommendationTile({ img, title, subtitle, minPrice, ...props }) {
           {title}
         </Title>
         <Subtitle>
-          {subtitle}
+          {subtitle.join(', ')}
         </Subtitle>
       </Body>
       <BottomRow>
@@ -70,7 +70,7 @@ function RecommendationTile({ img, title, subtitle, minPrice, ...props }) {
 RecommendationTile.propTypes = {
   img: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
+  subtitle: PropTypes.arrayOf(PropTypes.string).isRequired,
   minPrice: PropTypes.number.isRequired,
 };
 
