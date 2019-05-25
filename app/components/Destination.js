@@ -4,6 +4,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
 import { getDestinationImages, getDestinations } from '../api';
+import DestinationTitle from './DestinationTitle';
 
 
 function getImageUrl(folder, url) {
@@ -68,7 +69,17 @@ const Destination = ({ match }) => {
           )
         }
       </CarouselWrapper>
-      Destination view {destinationID}
+      {
+        destinationData ? (
+          <>
+            <DestinationTitle
+              data={destinationData}
+            />
+          </>
+        ) : (
+          <div>Loading!</div>
+        )
+      }
     </>
   );
 };
