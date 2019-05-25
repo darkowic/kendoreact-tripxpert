@@ -111,6 +111,10 @@ main section {
   height: 100%;
 }
 
+.k-dropdown-wrap {
+  align-items: center !important;
+}
+
 .masonry-grid {
   margin: 2em;
 }

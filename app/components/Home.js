@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MasonryLayout from './MasonryLayout';
 import { useMedia } from 'react-use-media';
-import axios from 'axios';
 
 /* KendoReact Components and CSS */
 import { DropDownList } from '@progress/kendo-react-dropdowns';
@@ -40,13 +39,24 @@ const Home = () => {
           <div className="tx-search-md">
             <div className="row no-gutters">
               <div className="col-2">
-                <DropDownList data={offerOptions} placeholder="Offer Type" />
+                <DropDownList
+                  data={offerOptions}
+                  defaultItem={offerOptions[0]}
+                  placeholder="Offer Type"
+                />
               </div>
               <div className="col-3">
-                <DropDownList data={priceOptions} placeholder="Price Range" />
+                <DropDownList
+                  data={priceOptions}
+                  defaultItem={priceOptions[0]}
+                  placeholder="Price Range"
+                />
               </div>
               <div className="col-5">
-                <DropDownList data={destinations} placeholder="Destinations" />
+                <DropDownList
+                  data={destinations}
+                  placeholder="Destinations"
+                />
               </div>
               <div className="col-2">
                 <Button primary={true}>Search</Button>
