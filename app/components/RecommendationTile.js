@@ -45,9 +45,7 @@ const ViewDetails = styled(Link)`
 function RecommendationTile({ img, title, subtitle, minPrice, ...props }) {
   return (
     <div {...props}>
-      <Img style={{
-        backgroundImage: `url(${img})`
-      }} />
+      <Img src={img} />
       <Body>
         <Title>
           {title}

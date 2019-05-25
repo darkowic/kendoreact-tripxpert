@@ -1,21 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import MasonryLayout from './MasonryLayout';
 import { useMedia } from 'react-use-media';
+import axios from 'axios';
 
 /* KendoReact Components and CSS */
 import { DropDownList } from '@progress/kendo-react-dropdowns';
 import { Button } from '@progress/kendo-react-buttons';
 
-import RecommendationTile from './RecommendationTile'
+import RecommendationTile from './RecommendationTile';
 
-import preview from '../images/Gallery/Barcelona-and-Tenerife/Arc-de-Triomf,-Barcelona,-Spain_Liliya-Karakoleva.JPG'
+const URL_PREFIX = 'https://demos.telerik.com/aspnet-mvc/tripxpert/';
+const TOP_RECOMMENDS_URL = 'https://demos.telerik.com/aspnet-mvc/tripxpert/Destinations/Destinations_First';
 
 const Home = () => {
   document.title = `TripXpert Home`;
-  const isMd = useMedia("(min-width: 768px)") ? true : false;
-  const offerOptions = [ "All", "Special", "Regular" ];
-  const priceOptions = [ "$0 to $999", "$1000 to $1999", "$2000 to $2999" ];
-  const destinations = [ "Barcelona", "United States", "Malta", "Italy" ];
+  const isMd = useMedia('(min-width: 768px)') ? true : false;
+  const offerOptions = ['All', 'Special', 'Regular'];
+  const priceOptions = ['$0 to $999', '$1000 to $1999', '$2000 to $2999'];
+  const destinations = ['Barcelona', 'United States', 'Malta', 'Italy'];
+
+  const [recommended, setRecommended] = useState(null);
+  useEffect(() => {
+    axios.get(TOP_RECOMMENDS_URL)
+      .then((response) => {
+        setRecommended(response.data);
+      });
+
+  }, []);
 
   return (
     <>
@@ -53,21 +64,24 @@ const Home = () => {
         <p className="text-muted text-italic">Explore top destinations and attractions</p>
       </div>
       <div className="masonry-grid">
-        <MasonryLayout columns={isMd ? 3 : 2} gap={isMd ? 32 : 24}>
-          {[...Array(6).keys()].map(
-            (key) => <RecommendationTile
-              key={`${key}`}
-              style={{height: `280px`}}
-              img={preview}
-              title={"test title"}
-              subtitle={"test subtitle"}
-              minPrice={400}
-            />
-          )}
-        </MasonryLayout>
+        {recommended ?
+          <MasonryLayout columns={isMd ? 3 : 2} gap={isMd ? 32 : 24}>
+            {recommended.map(
+              ({ DestinationID, DefaultImage, Title, ShortDescription, LowestPrice }) => <RecommendationTile
+                key={DestinationID}
+                style={{ height: `280px` }}
+                img={`${URL_PREFIX}${DefaultImage}`}
+                title={Title}
+                subtitle={ShortDescription}
+                minPrice={LowestPrice}
+              />,
+            )}
+          </MasonryLayout> :
+          <div>Loading....</div>
+        }
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Home;
