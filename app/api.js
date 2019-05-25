@@ -4,6 +4,8 @@ import axios from 'axios';
 const URL_PREFIX = 'https://demos.telerik.com/aspnet-mvc/tripxpert/';
 const TOP_RECOMMENDS_URL = 'Destinations/Destinations_First';
 const DESTINATIONS = 'Destinations/Destinations_Read';
+const DESTINATION_IMAGES = 'Destinations/GetDestinationImages?destinationId=';
+
 
 
 export async function getRecommended() {
@@ -26,4 +28,10 @@ export async function getDestinations() {
       DefaultImage: `${URL_PREFIX}${data.DefaultImage}`,
     })),
   };
+}
+
+export async function getDestinationImages(destinationID) {
+  const response = await axios.get(`/api/${DESTINATION_IMAGES}${destinationID}`);
+
+  return response.data;
 }

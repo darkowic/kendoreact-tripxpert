@@ -67,6 +67,7 @@ const Home = () => {
             {recommended.map(
               ({ DestinationID, DefaultImage, Title, ShortDescription, LowestPrice }) => <RecommendationTile
                 key={DestinationID}
+                id={DestinationID}
                 style={{ height: `280px` }}
                 img={DefaultImage}
                 title={Title}

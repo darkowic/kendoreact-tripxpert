@@ -42,7 +42,7 @@ const ViewDetails = styled(Link)`
 `;
 
 
-function RecommendationTile({ img, title, subtitle, minPrice, ...props }) {
+function RecommendationTile({ id, img, title, subtitle, minPrice, ...props }) {
   return (
     <div {...props}>
       <Img src={img} />
@@ -57,7 +57,7 @@ function RecommendationTile({ img, title, subtitle, minPrice, ...props }) {
       <BottomRow>
         <MinPrice>From ${minPrice}</MinPrice>
         <ViewDetails
-          to={'/'}
+          to={`/destinations/${id}`}
         >
           View Details
         </ViewDetails>
@@ -68,6 +68,7 @@ function RecommendationTile({ img, title, subtitle, minPrice, ...props }) {
 
 
 RecommendationTile.propTypes = {
+  id: PropTypes.number.isRequired,
   img: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.arrayOf(PropTypes.string).isRequired,

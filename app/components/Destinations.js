@@ -33,6 +33,7 @@ const Destinations = () => {
                   return (
                     <RecommendationTile
                       key={DestinationID}
+                      id={DestinationID}
                       style={{ height: `${height}px` }}
                       img={DefaultImage}
                       title={Title}
