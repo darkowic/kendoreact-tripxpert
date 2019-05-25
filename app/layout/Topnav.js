@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import Menu from '../components/Menu';
 import Logo from '../images/App/tripxpert_logo.svg';
 import './Topnav.css';
 
-const LogoContainer = styled.div`
+const LogoContainer = styled(Link)`
   width: 150px;
   display: flex;
 
@@ -20,7 +21,7 @@ const MenuWrapper = styled.div`
 const TopNav = () => {
   return (
     <div className={'topnav'}>
-      <LogoContainer>
+      <LogoContainer to="/">
         <Logo />
       </LogoContainer>
       <MenuWrapper>
